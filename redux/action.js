@@ -206,11 +206,55 @@ export const otpVerify = (otp) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(data)
+
     dispatch({ type: "otpVerifySuccess", payload: data.message });
   } catch (error) {
     dispatch({
       type: "otpVerifyFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const forgotPassword = (email) => async (dispatch) => {
+  try {
+
+    dispatch({ type: "forgetPasswordRequest" });
+
+    const { data } = await axios.post(`${SERVER_URL}/forgetPassword`, {email}, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    dispatch({ type: "forgetPasswordSuccess", payload: data.message });
+  } catch (error) {
+    dispatch({
+      type: "forgetPasswordFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const resetPassword = (otp,newPassword) => async (dispatch) => {
+  try {
+
+    dispatch({ type: "resetPasswordRequest" });
+
+    const { data } = await axios.put(
+      `${SERVER_URL}/resetPassword`,
+      { otp, newPassword },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    dispatch({ type: "resetPasswordSuccess", payload: data.message });
+  } catch (error) {
+    dispatch({
+      type: "resetPasswordFailure",
       payload: error.response.data.message,
     });
   }

@@ -113,6 +113,28 @@ export const messageReducer = createReducer({},(builder)=>{
         state.loading=false;
         state.message=action.payload;
     })
+    .addCase("forgetPasswordRequest",(state)=>{
+         state.loading=true;
+    })
+    .addCase("forgetPasswordSuccess",(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    })
+    .addCase("forgetPasswordFailure",(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    })
+    .addCase("resetPasswordRequest",(state)=>{
+         state.loading=true;
+    })
+    .addCase("resetPasswordSuccess",(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    })
+    .addCase("resetPasswordFailure",(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    })
     .addCase("logoutRequest",(state)=>{
          state.loading=true;
     })

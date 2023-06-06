@@ -12,6 +12,8 @@ import { loadUser } from "./redux/action";
 import Loader from "./components/Loader";
 import UpdatePassword from "./components/UpdatePassword";
 import Verify from "./screens/Verify";
+import ForgotPassword from "./screens/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 
 const Stack = createNativeStackNavigator();
@@ -67,6 +69,16 @@ const Main = () => {
         <Stack.Screen
           name="changePassword"
           component={UpdatePassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="forgotPassword"
+          component={ForgotPassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="resetPassword"
+          component={ResetPassword}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
