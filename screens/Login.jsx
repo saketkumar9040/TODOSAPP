@@ -46,14 +46,14 @@ const Login = ({ navigation }) => {
         style={styles.button}
         onPress={loginHandler}
       >
-        <Text style={{ color: "#fff" }}>LOGIN</Text>
+        <Text style={{ color: "#fff",fontSize:24, }}>LOGIN</Text>
       </Button>
-      <Text style={{ marginTop: 20 }}>Or</Text>
+      <Text style={{ marginTop: 20,fontSize:24,color:"#fff" }}>Or</Text>
       <TouchableOpacity onPress={() => navigation.navigate("register")}>
-        <Text style={{ color: "#900", height: 30, margin: 20 }}>Sign Up</Text>
+        <Text style={{ color: "#fff", margin: 20,fontSize:25,fontWeight:800, }}>Sign Up</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("forgotPassword")}>
-        <Text style={{  height: 30, marginTop: 50 }}>Forgot Password ?</Text>
+        <Text style={{ color: "#fff", margin: 20,fontSize:25,fontWeight:400, }}>Forgot Password ?</Text>
       </TouchableOpacity>
     </View>
   );
@@ -64,13 +64,15 @@ export default Login;
 const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#6495ED",
     alignItems: "center",
     justifyContent: "center",
   },
   welcomeText: {
-    fontSize: 20,
+    fontSize: 45,
+    fontWeight:700,
     margin: 20,
+    color:"#fff"
   },
   input: {
     backgroundColor: "#fff",
@@ -80,11 +82,12 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderRadius: 5,
     marginVertical: 15,
-    fontSize: 15,
+    fontSize: 25,
   },
   button: {
     backgroundColor: "#900",
     padding: 5,
     width: "70%",
+    borderRadius:40,
   },
 });

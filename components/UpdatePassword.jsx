@@ -50,13 +50,15 @@ export default UpdatePassword;
 const styles = StyleSheet.create({
   updatePasswordContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#6495ED",
     alignItems: "center",
     justifyContent: "center",
   },
   welcomeText: {
-    fontSize: 18,
+    fontSize: 28,
+    fontWeight:800,
     margin: 20,
+    color:"white",
   },
   input: {
     backgroundColor: "#fff",
@@ -66,11 +68,13 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderRadius: 5,
     marginVertical: 15,
-    fontSize: 15,
+    fontSize: 25,
   },
   button: {
     backgroundColor: "#900",
+    marginTop:20,
     padding: 5,
     width: "70%",
+    borderRadius:30,
   },
 });

@@ -5,7 +5,7 @@ import { ActivityIndicator } from 'react-native-paper';
 const Loader = () => {
   return (
     <View
-      style={{ backgroundColor:"#fff" ,flex:1, justifyContent: "center", alignItems: "center" }}
+      style={{ backgroundColor:"#6495ED" ,flex:1, justifyContent: "center", alignItems: "center" }}
     >
       <ActivityIndicator animating={true} size={100} color='#900'/>
     </View>
