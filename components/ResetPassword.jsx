@@ -49,7 +49,7 @@ const ResetPassword = ({navigation}) => {
         />
       </View>
       <Button style={styles.button} onPress={resetHandler} color="#fff" disabled={!otp || ! newPassword}>
-        SUBMIT
+       <Text style={{fontSize:20,color:"#fff"}}>SUBMIT</Text>
       </Button>
     </View>
   );
@@ -61,13 +61,15 @@ export default ResetPassword;
 const styles = StyleSheet.create({
   resetPasswordContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#6495ED",
     alignItems: "center",
     justifyContent: "center",
   },
   welcomeText: {
-    fontSize: 18,
+    fontSize: 35,
+    fontWeight:700,
     margin: 20,
+    color:"#fff"
   },
   input: {
     backgroundColor: "#fff",
@@ -77,11 +79,12 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderRadius: 5,
     marginVertical: 15,
-    fontSize: 15,
+    fontSize: 20,
   },
   button: {
     backgroundColor: "#900",
     padding: 5,
     width: "70%",
+    borderRadius:40,
   },
 });
