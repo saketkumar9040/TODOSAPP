@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadUser, logout, updateProfile } from "../redux/action";
 import mime from "mime";
 import Loader from "../components/Loader";
+import { StatusBar } from "expo-status-bar";
 
 const Profile = ({ navigation, route }) => {
   const dispatch = useDispatch();
@@ -48,16 +49,16 @@ const Profile = ({ navigation, route }) => {
     <Loader />
   ) : (
     <View style={styles.profileContainer}>
+      <StatusBar style="light"/>
       <Avatar.Image
         size={100}
         source={{ uri: avatar }}
-        style={{ backgroundColor: "#900" }}
       />
       <TouchableOpacity onPress={handleImage}>
-        <Text style={{ color: "#900", padding: 10 }}>Change Photo</Text>
+        <Text style={{ color: "white", padding: 10,fontWeight:700,fontSize:18,elevation:10,backgroundColor:"#6495ED",borderRadius:20, }}>Change Photo</Text>
       </TouchableOpacity>
 
-      <View style={{ width: "70%" }}>
+      <View style={{ width: "70%", }}>
         <TextInput
           style={styles.input}
           placeholder="Name"
@@ -66,16 +67,18 @@ const Profile = ({ navigation, route }) => {
         />
       </View>
       <Button style={styles.button} onPress={submitHandler}>
-        <Text style={{ color: "#fff" }}>Update</Text>
+        <Text style={{ color: "#fff",fontSize:20,}}>Update</Text>
       </Button>
       <Button
-        color="rgb(50,50,50)"
+        color="white"
         onPress={() => navigation.navigate("changePassword")}
       >
+        <Text style={{ color: "white", padding: 10,fontWeight:700,fontSize:18,elevation:20,backgroundColor:"#6495ED",borderRadius:20, }}>
         Change Password
+        </Text>
       </Button>
-      <Button color="rgb(50,50,50)" onPress={logoutHandler}>
-        Logout
+      <Button color="white"  onPress={logoutHandler}>
+        <Text style={{fontSize:20,}}>Logout</Text>
       </Button>
       {user.verified ? null : (
         <Button onPress={() => navigation.navigate("verify")}>Verify</Button>
@@ -89,7 +92,7 @@ export default Profile;
 const styles = StyleSheet.create({
   profileContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#6495ED",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -99,14 +102,16 @@ const styles = StyleSheet.create({
     borderColor: "#b5b5b5",
     padding: 2,
     paddingLeft: 15,
-    borderRadius: 5,
+    // borderRadius: 20,
     marginVertical: 15,
-    fontSize: 15,
+    fontSize: 25,
   },
   button: {
     backgroundColor: "#900",
     padding: 5,
     width: "70%",
     margin: 10,
+    elevation:10,
+    borderRadius:20,
   },
 });

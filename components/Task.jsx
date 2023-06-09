@@ -59,16 +59,22 @@ export default Task;
 const style = StyleSheet.create({
     container:{
         padding:10,
+        paddingLeft:15,
         flexDirection:"row",
         alignItems:"center",
-        justifyContent:"space-evenly"
+        backgroundColor:"cornsilk",
+        justifyContent:"space-evenly",
+        borderRadius:30,
+        marginVertical:10,
+        marginHorizontal:15,
     },
     title:{
-        fontSize:20,
+        fontSize:22,
         marginVertical:7,
         color:"#900"
     },
     description:{
+        fontSize:18,
         color:"#4a4a4a"
     }
 })
