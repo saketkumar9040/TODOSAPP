@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Button, TextInput } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/action";
+import { StatusBar } from "expo-status-bar";
+import * as NavigationBar from "expo-navigation-bar";
 
 const Login = ({ navigation }) => {
+
+  NavigationBar.setBackgroundColorAsync("#6495ED");
   const { error } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -25,6 +29,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.loginContainer}>
+      <StatusBar style="light"/>
       <Text style={styles.welcomeText}>WELCOME</Text>
       <View style={{ width: "70%" }}>
         <TextInput
@@ -80,9 +85,12 @@ const styles = StyleSheet.create({
     borderColor: "#b5b5b5",
     padding: 2,
     paddingLeft: 15,
-    borderRadius: 5,
-    marginVertical: 15,
+    borderRadius: 20,
+    borderTopRightRadius:20,
+    borderTopLeftRadius:20,
+    marginVertical: 5,
     fontSize: 22,
+    marginBottom:20,
   },
   button: {
     backgroundColor: "#900",
