@@ -51,7 +51,7 @@ const Login = ({ navigation }) => {
         style={styles.button}
         onPress={loginHandler}
       >
-        <Text style={{ color: "#fff",fontSize:24, }}>LOGIN</Text>
+        <Text style={{ color: "#fff",fontSize:20, }}>LOGIN</Text>
       </Button>
       <Text style={{ marginTop: 20,fontSize:24,color:"#fff" }}>Or</Text>
       <TouchableOpacity onPress={() => navigation.navigate("register")}>
@@ -74,28 +74,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   welcomeText: {
-    fontSize: 45,
-    fontWeight:700,
+    fontSize: 40,
+    fontWeight:500,
     margin: 20,
     color:"#fff"
   },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#b5b5b5",
-    padding: 2,
+    // borderWidth: 1,
+    // borderColor: "#b5b5b5",
+    // padding: 2,
     paddingLeft: 15,
-    borderRadius: 20,
-    borderTopRightRadius:20,
-    borderTopLeftRadius:20,
-    marginVertical: 5,
+    // borderRadius: 20,
+    // borderTopRightRadius:20,
+    // borderTopLeftRadius:20,
+    // marginVertical: 5,
     fontSize: 22,
     marginBottom:20,
   },
   button: {
     backgroundColor: "#900",
-    padding: 5,
-    width: "70%",
+    // padding: 5,
+    marginTop:20,
+    width: "60%",
     borderRadius:40,
   },
 });
