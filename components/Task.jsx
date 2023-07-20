@@ -62,7 +62,7 @@ const style = StyleSheet.create({
         paddingLeft:15,
         flexDirection:"row",
         alignItems:"center",
-        backgroundColor:"cornsilk",
+        backgroundColor:"#fff",
         justifyContent:"space-evenly",
         borderRadius:30,
         marginVertical:10,
