@@ -48,7 +48,13 @@ export const userReducer = createReducer({},(builder)=>{
         state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload;
-      });
+      })
+        .addCase("logoutSuccess",(state,action)=>{
+        state.loading=false;
+        state.message=action.payload
+        state.isAuthenticated=false;
+        state.user=null;
+    })
 });
 
 export const messageReducer = createReducer({},(builder)=>{
@@ -137,13 +143,6 @@ export const messageReducer = createReducer({},(builder)=>{
     })
     .addCase("logoutRequest",(state)=>{
          state.loading=true;
-    })
-    .addCase("logoutSuccess",(state,action)=>{
-        state.loading=false;
-        state.message=action.payload
-        state.isAuthenticated=false;
-        state.user=null;
-
     })
     .addCase("logoutFailure",(state,action)=>{
         state.loading=false;

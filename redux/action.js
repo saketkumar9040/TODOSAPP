@@ -167,8 +167,7 @@ export const logout = () => async (dispatch) => {
     const { data } = await axios.get(
       `${SERVER_URL}/logout`
     );
-
-    dispatch({ type: "logoutSuccess", payload: data.message });
+   await dispatch({ type: "logoutSuccess", payload: data.message });
   } catch (error) {
     dispatch({
       type: "logoutFailure",

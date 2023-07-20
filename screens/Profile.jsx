@@ -32,9 +32,8 @@ const Profile = ({ navigation, route }) => {
    await dispatch(updateProfile(myForm));
     dispatch(loadUser())
   };
-  const logoutHandler = () => {
-    dispatch(logout());
-    navigation.navigate("login");
+  const logoutHandler = async() => {
+    await dispatch(logout());
   };
 
   useEffect(() => {

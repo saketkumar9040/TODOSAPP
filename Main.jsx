@@ -29,26 +29,20 @@ const Main = () => {
   }, [dispatch])
   
 
-   const { isAuthenticated ,loading } = useSelector(state=>state.auth)
+   const { isAuthenticated ,loading,user } = useSelector(state=>state.auth);
+   console.log(isAuthenticated)
+   console.log(user)
 
   return loading ? (
     <Loader />
   ) : (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={isAuthenticated ? "home" : "login"}>
-        <Stack.Screen
+    <NavigationContainer> 
+      {
+        isAuthenticated ? (
+          <Stack.Navigator>
+          <Stack.Screen
           name="home"
           component={Home}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="register"
-          component={Register}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -81,7 +75,22 @@ const Main = () => {
           component={ResetPassword}
           options={{ headerShown: false }}
         />
+        </Stack.Navigator>
+        ):(
+          <Stack.Navigator>
+          <Stack.Screen
+          name="login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="register"
+          component={Register}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
+        )
+      }
       {isAuthenticated && <Footer />}
     </NavigationContainer>
   );
