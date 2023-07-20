@@ -54,8 +54,8 @@ const Profile = ({ navigation, route }) => {
         size={100}
         source={{ uri: avatar }}
       />
-      <TouchableOpacity onPress={handleImage}>
-        <Text style={{ color: "white", padding: 10,fontWeight:700,fontSize:18,elevation:10,backgroundColor:"#6495ED",borderRadius:20, }}>Change Photo</Text>
+      <TouchableOpacity onPress={handleImage} style={{marginBottom:30,}}>
+        <Text style={{ color: "white",fontWeight:700,fontSize:18,backgroundColor:"#6495ED" }}>Change Photo</Text>
       </TouchableOpacity>
 
       <View style={{ width: "70%", }}>
@@ -100,21 +100,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#b5b5b5",
-    padding: 2,
+    // padding: 2,
     paddingLeft: 15,
-    borderRadius: 20,
-    borderTopRightRadius:20,
-    borderTopLeftRadius:20,
     marginVertical: 5,
     fontSize: 22,
     marginBottom:20,
   },
   button: {
     backgroundColor: "#900",
-    padding: 5,
-    width: "70%",
+    // padding: 5,
+    width: "60%",
     margin: 10,
     elevation:10,
-    borderRadius:20,
+    borderRadius:50,
   },
 });
