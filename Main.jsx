@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import Footer from "./components/Footer";
@@ -15,82 +15,75 @@ import Verify from "./screens/Verify";
 import ForgotPassword from "./screens/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 
-
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    dispatch(loadUser())
-  
-  }, [dispatch])
-  
+    dispatch(loadUser());
+  }, [dispatch]);
 
-   const { isAuthenticated ,loading,user } = useSelector(state=>state.auth);
-   console.log(isAuthenticated)
-   console.log(user)
+  const { isAuthenticated, loading, user } = useSelector((state) => state.auth);
+  console.log(isAuthenticated);
+  console.log(user);
 
   return loading ? (
     <Loader />
   ) : (
-    <NavigationContainer> 
-      {
-        isAuthenticated ? (
-          <Stack.Navigator>
+    <NavigationContainer>
+      {isAuthenticated ? (
+        <Stack.Navigator>
           <Stack.Screen
-          name="home"
-          component={Home}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="verify"
-          component={Verify}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="camera"
-          component={Camera}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="changePassword"
-          component={UpdatePassword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="forgotPassword"
-          component={ForgotPassword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="resetPassword"
-          component={ResetPassword}
-          options={{ headerShown: false }}
-        />
+            name="home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="verify"
+            component={Verify}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="profile"
+            component={Profile}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="camera"
+            component={Camera}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="changePassword"
+            component={UpdatePassword}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
-        ):(
-          <Stack.Navigator>
+      ) : (
+        <Stack.Navigator>
           <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="register"
-          component={Register}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-        )
-      }
+            name="login"
+            component={Login}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="register"
+            component={Register}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="forgotPassword"
+            component={ForgotPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="resetPassword"
+            component={ResetPassword}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      )}
       {isAuthenticated && <Footer />}
     </NavigationContainer>
   );
