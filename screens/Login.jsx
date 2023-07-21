@@ -37,6 +37,7 @@ const Login = ({ navigation }) => {
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
+          autoCapitalize="none"
         />
         <TextInput
           secureTextEntry
@@ -44,6 +45,7 @@ const Login = ({ navigation }) => {
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
+          autoCapitalize="none"
         />
       </View>
       <Button

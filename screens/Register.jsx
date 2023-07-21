@@ -65,12 +65,14 @@ const Register = ({ navigation, route }) => {
           placeholder="Name"
           value={name}
           onChangeText={setName}
+          autoCapitalize="none"
         />
         <TextInput
           style={styles.input}
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
+          autoCapitalize="none"
         />
         <TextInput
           secureTextEntry
@@ -78,6 +80,7 @@ const Register = ({ navigation, route }) => {
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
+          autoCapitalize="none"
         />
         <TextInput
           secureTextEntry

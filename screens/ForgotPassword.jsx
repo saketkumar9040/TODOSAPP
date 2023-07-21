@@ -26,6 +26,7 @@ const ForgotPassword = ({navigation}) => {
           placeholder="Enter Your Email"
           value={email}
           onChangeText={setEmail}
+          autoCapitalize='none'
         />
       </View>
       <Button style={styles.button} onPress={submitHandler} color="#fff" disabled={loading}>

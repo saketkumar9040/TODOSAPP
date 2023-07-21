@@ -63,6 +63,7 @@ const Profile = ({ navigation, route }) => {
           placeholder="Name"
           value={name}
           onChangeText={setName}
+          autoCapitalize="none"
         />
       </View>
       <Button style={styles.button} onPress={submitHandler}>

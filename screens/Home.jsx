@@ -84,12 +84,14 @@ const Home = ({ navigation }) => {
             placeholder="Title"
             value={title}
             onChangeText={setTitle}
+            autoCapitalize="none"
           />
           <TextInput
             style={style.input}
             placeholder="Description"
             value={description}
             onChangeText={setDescription}
+            autoCapitalize="none"
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <TouchableOpacity onPress={hideDialog}>

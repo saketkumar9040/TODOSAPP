@@ -16,7 +16,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.saketkumar.todoApp"
+      "bundleIdentifier": "com.saketkumar.todoApp",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
     },
     "android": {
       "package": "com.saketkumar.todoApp",
@@ -24,7 +27,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,6 +37,9 @@
       "eas": {
         "projectId": "412b7d89-bf24-4b6c-ae37-f9f664c29632"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/412b7d89-bf24-4b6c-ae37-f9f664c29632"
     }
   }
 }
