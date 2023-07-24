@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Button, TextInput } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/action";
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
+import todoImage from "../assets/robot.png"
 
 const Login = ({ navigation }) => {
 
@@ -31,7 +32,11 @@ const Login = ({ navigation }) => {
     <View style={styles.loginContainer}>
       <StatusBar style="light"/>
       <Text style={styles.welcomeText}>WELCOME</Text>
-      <View style={{ width: "70%" }}>
+      <Image
+        source={todoImage}
+        style={styles.logo}
+      />
+      <View style={{ width: "80%" }}>
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -78,19 +83,19 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 40,
     fontWeight:500,
-    margin: 20,
-    color:"#fff"
+    // margin: 20,
+    color:"#fff",
+    letterSpacing:5,
+  },
+  logo:{
+    height:200,
+    width:200,
   },
   input: {
     backgroundColor: "#fff",
-    // borderWidth: 1,
-    // borderColor: "#b5b5b5",
-    // padding: 2,
+    borderWidth: 2,
+    borderColor: "#900",
     paddingLeft: 15,
-    // borderRadius: 20,
-    // borderTopRightRadius:20,
-    // borderTopLeftRadius:20,
-    // marginVertical: 5,
     fontSize: 22,
     marginBottom:20,
   },
