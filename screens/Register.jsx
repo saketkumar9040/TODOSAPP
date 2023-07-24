@@ -37,7 +37,7 @@ const Register = ({ navigation, route }) => {
       name: avatar.split("/").pop(),
     });
     await dispatch(register(myForm));
-     dispatch(loadUser());
+    dispatch(loadUser());
   };
 
   useEffect(() => {
@@ -53,23 +53,23 @@ const Register = ({ navigation, route }) => {
       <Avatar.Image
         size={100}
         source={{ uri: avatar ? avatar : null }}
-        style={{ backgroundColor: "#900" }}
+        style={styles.image}
       />
       <TouchableOpacity onPress={handleImage}>
-        <Text style={{ color: "#900", padding: 10 }}>Change Photo</Text>
+        <Text style={styles.changeImageText}>Change Photo</Text>
       </TouchableOpacity>
 
       <View style={{ width: "70%" }}>
         <TextInput
           style={styles.input}
-          placeholder="Name"
+          placeholder="Enter name"
           value={name}
           onChangeText={setName}
           autoCapitalize="none"
         />
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder="Enter email"
           value={email}
           onChangeText={setEmail}
           autoCapitalize="none"
@@ -77,7 +77,7 @@ const Register = ({ navigation, route }) => {
         <TextInput
           secureTextEntry
           style={styles.input}
-          placeholder="Password"
+          placeholder="Enter password"
           value={password}
           onChangeText={setPassword}
           autoCapitalize="none"
@@ -85,7 +85,7 @@ const Register = ({ navigation, route }) => {
         <TextInput
           secureTextEntry
           style={styles.input}
-          placeholder="Phone"
+          placeholder="Enter phone"
           value={phone}
           onChangeText={setPhone}
         />
@@ -95,7 +95,7 @@ const Register = ({ navigation, route }) => {
         style={styles.button}
         onPress={registerHandler}
       >
-        <Text style={{ color: "#fff" }}>Register</Text>
+        <Text style={styles.buttonText}>Register</Text>
       </Button>
       <TouchableOpacity onPress={() => navigation.navigate("login")}>
         <Text style={{ color: "#900", height: 30, margin: 20 }}>
@@ -119,23 +119,41 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 20,
   },
+  image: {
+    backgroundColor: "#900",
+    borderWidth: 2,
+    borderColor: "#b5b5b5",
+  },
+  changeImageText: {
+    color: "#900",
+    paddingHorizontal: 10,
+    borderWidth: 2,
+    borderColor: "#900",
+    marginVertical: 20,
+  },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: "#b5b5b5",
     padding: 2,
-    paddingLeft: 15,
-    borderRadius: 20,
-    borderTopRightRadius:20,
-    borderTopLeftRadius:20,
+    paddingLeft: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
     marginVertical: 5,
     fontSize: 22,
-    marginBottom:20,
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "#900",
-    padding: 5,
-    width: "70%",
+    paddingHorizontal: 5,
+    width: "40%",
     marginTop: 10,
+    borderRadius: 40,
+    elevation: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 20,
+    letterSpacing: 2,
   },
 });
