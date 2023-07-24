@@ -103,9 +103,9 @@ const Profile = ({ navigation, route }) => {
           Change Password
         </Text>
       </Button>
-      <Button color="white" onPress={logoutHandler}>
-        <Text style={{ fontSize: 20 }}>Logout</Text>
-      </Button>
+      <TouchableOpacity style={{borderWidth:2,borderColor:"#fff",borderRadius:40,marginTop:20,}} onPress={logoutHandler}>
+        <Text style={{ color:'#fff',fontSize: 20,fontWeight:700,paddingHorizontal:20, }}>LOGOUT</Text>
+      </TouchableOpacity>
       {user.verified ? null : (
         <TouchableOpacity onPress={() => navigation.navigate("verify")}>
           <Text
@@ -136,11 +136,13 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#fff",
     borderWidth: 2,
+    paddingVertical:10,
     borderColor: "#900",
     paddingLeft: 15,
     marginVertical: 5,
     fontSize: 22,
     marginBottom: 20,
+    borderRadius:10,
   },
   button: {
     backgroundColor: "#900",
