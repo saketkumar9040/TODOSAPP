@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
@@ -38,6 +39,7 @@ const Register = ({ navigation, route }) => {
       name: avatar.split("/").pop(),
     });
     await dispatch(register(myForm));
+    Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
     dispatch(loadUser());
   };
 
