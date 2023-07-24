@@ -1,6 +1,12 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 import React, { useEffect, useState } from "react";
-import { Avatar, TextInput, Button } from "react-native-paper";
+import { Avatar, Button } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser, logout, updateProfile } from "../redux/action";
 import mime from "mime";
@@ -20,7 +26,7 @@ const Profile = ({ navigation, route }) => {
       updateProfile: true,
     });
   };
-  const submitHandler =async () => {
+  const submitHandler = async () => {
     const myForm = new FormData();
 
     myForm.append("name", name);
@@ -29,10 +35,10 @@ const Profile = ({ navigation, route }) => {
       type: mime.getType(avatar),
       name: avatar.split("/").pop(),
     });
-   await dispatch(updateProfile(myForm));
-    dispatch(loadUser())
+    await dispatch(updateProfile(myForm));
+    dispatch(loadUser());
   };
-  const logoutHandler = async() => {
+  const logoutHandler = async () => {
     await dispatch(logout());
   };
 
@@ -48,17 +54,26 @@ const Profile = ({ navigation, route }) => {
     <Loader />
   ) : (
     <View style={styles.profileContainer}>
-      <StatusBar style="light"/>
+      <StatusBar style="light" />
       <Avatar.Image
         size={100}
         source={{ uri: avatar }}
-        style={{marginBottom:20,backgroundColor:"transparent"}}
+        style={{ marginBottom: 20, backgroundColor: "transparent" }}
       />
-      <TouchableOpacity onPress={handleImage} style={{marginBottom:30,}}>
-        <Text style={{ color: "white",fontWeight:700,fontSize:18,backgroundColor:"#6495ED" }}>Change Photo</Text>
+      <TouchableOpacity onPress={handleImage} style={{ marginBottom: 30 }}>
+        <Text
+          style={{
+            color: "white",
+            fontWeight: 700,
+            fontSize: 18,
+            backgroundColor: "#6495ED",
+          }}
+        >
+          Change Photo
+        </Text>
       </TouchableOpacity>
 
-      <View style={{ width: "70%", }}>
+      <View style={{ width: "70%" }}>
         <TextInput
           style={styles.input}
           placeholder="Name"
@@ -68,23 +83,41 @@ const Profile = ({ navigation, route }) => {
         />
       </View>
       <Button style={styles.button} onPress={submitHandler}>
-        <Text style={{ color: "#fff",fontSize:20,}}>Update</Text>
+        <Text style={{ color: "#fff", fontSize: 20 }}>Update</Text>
       </Button>
       <Button
         color="white"
         onPress={() => navigation.navigate("changePassword")}
       >
-        <Text style={{ color: "white", padding: 10,fontWeight:700,fontSize:18,elevation:20,backgroundColor:"#6495ED",borderRadius:20, }}>
-        Change Password
+        <Text
+          style={{
+            color: "white",
+            padding: 10,
+            fontWeight: 700,
+            fontSize: 18,
+            elevation: 20,
+            backgroundColor: "#6495ED",
+            borderRadius: 20,
+          }}
+        >
+          Change Password
         </Text>
       </Button>
-      <Button color="white"  onPress={logoutHandler}>
-        <Text style={{fontSize:20,}}>Logout</Text>
+      <Button color="white" onPress={logoutHandler}>
+        <Text style={{ fontSize: 20 }}>Logout</Text>
       </Button>
       {user.verified ? null : (
-        <TouchableOpacity onPress={() => navigation.navigate("verify") }>
-          <Text  style={{fontSize:25,color:"#fff",borderWidth:2,
-        borderColor:"#fff"}}>Verify</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("verify")}>
+          <Text
+            style={{
+              fontSize: 25,
+              color: "#fff",
+              borderWidth: 2,
+              borderColor: "#fff",
+            }}
+          >
+            Verify
+          </Text>
         </TouchableOpacity>
       )}
     </View>
@@ -107,14 +140,14 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     marginVertical: 5,
     fontSize: 22,
-    marginBottom:20,
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "#900",
     // padding: 5,
     width: "60%",
     margin: 10,
-    elevation:10,
-    borderRadius:50,
+    elevation: 10,
+    borderRadius: 50,
   },
 });

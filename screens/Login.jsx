@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Button, TextInput } from "react-native-paper";
+import { Button } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/action";
 import { StatusBar } from "expo-status-bar";
@@ -95,8 +95,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderWidth: 2,
     borderColor: "#900",
-    paddingLeft: 15,
-    fontSize: 22,
+    paddingLeft: 20,
+    paddingVertical:15,
+    borderRadius:10,
+    fontSize: 20,
     marginBottom: 20,
   },
   button: {
