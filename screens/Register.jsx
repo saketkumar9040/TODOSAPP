@@ -10,7 +10,7 @@ import { Avatar, Button } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { loadUser, register } from "../redux/action";
 import mime from "mime";
-import userIcon from "../assets/userIcon.jpg"
+import userIcon from "../assets/userIcon.jpg";
 
 const Register = ({ navigation, route }) => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Register = ({ navigation, route }) => {
     <View style={styles.registerContainer}>
       <Avatar.Image
         size={100}
-        source={avatar ?{ uri: avatar }: userIcon}
+        source={avatar ? { uri: avatar } : userIcon}
         style={styles.image}
       />
       <TouchableOpacity onPress={handleImage}>
@@ -98,10 +98,11 @@ const Register = ({ navigation, route }) => {
       >
         <Text style={styles.buttonText}>Register</Text>
       </Button>
+      <Text style={{ marginTop: 20, color: "#900", fontSize: 18 }}>
+        Already have an account !!!
+      </Text>
       <TouchableOpacity onPress={() => navigation.navigate("login")}>
-        <Text style={{ color: "#900", height: 30, margin: 20 }}>
-          Have an Account, Login
-        </Text>
+        <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
   );
@@ -123,22 +124,24 @@ const styles = StyleSheet.create({
   image: {
     backgroundColor: "#fff",
     // borderWidth: 2,
-    borderColor: "#b5b5b5",
-    justifyContent:"center"
+    // borderColor: "#b5b5b5",
+    // justifyContent: "center",
+    resizeMode:"center"
   },
   changeImageText: {
     color: "#900",
     paddingHorizontal: 20,
-    paddingVertical:5,
+    paddingVertical: 5,
     borderWidth: 2,
     borderColor: "#900",
     marginVertical: 20,
-    borderRadius:40,
+    borderRadius: 40,
+    fontWeight:700,
   },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 3,
-    borderColor: "#b5b5b5",
+    borderWidth: 2,
+    borderColor: "#900",
     padding: 2,
     paddingLeft: 20,
     paddingVertical: 10,
@@ -159,5 +162,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     letterSpacing: 2,
+  },
+  loginText: {
+    color: "#900",
+    height: 30,
+    margin: 20,
+    fontSize: 20,
+    fontWeight: 700,
   },
 });

@@ -25,7 +25,7 @@ const Main = () => {
   }, [dispatch]);
 
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
-  console.log(isAuthenticated)
+  console.log(isAuthenticated);
 
   return loading ? (
     <Loader />
@@ -79,6 +79,11 @@ const Main = () => {
           <Stack.Screen
             name="resetPassword"
             component={ResetPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="camera"
+            component={Camera}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

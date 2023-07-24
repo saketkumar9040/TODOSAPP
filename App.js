@@ -4,7 +4,7 @@ import store from "./redux/store";
 import * as Updates from "expo-updates";
 
 export default function App() {
-  // EXPO UPDATES  ==================================================================>
+  // EXPO UPDATES  ==========================================================================>
 
   async function onFetchUpdateAsync() {
     try {

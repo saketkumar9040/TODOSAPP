@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
       <StatusBar style="light" />
       <Text style={styles.welcomeText}>WELCOME</Text>
       <Image source={todoImage} style={styles.logo} />
-      <View style={{ width: "80%" }}>
+      <View style={{ width: "80%", }}>
         <TextInput
           style={styles.input}
           placeholder="Email"
