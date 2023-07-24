@@ -10,6 +10,7 @@ import { Avatar, Button } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { loadUser, register } from "../redux/action";
 import mime from "mime";
+import userIcon from "../assets/userIcon.jpg"
 
 const Register = ({ navigation, route }) => {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const Register = ({ navigation, route }) => {
     <View style={styles.registerContainer}>
       <Avatar.Image
         size={100}
-        source={{ uri: avatar ? avatar : null }}
+        source={avatar ?{ uri: avatar }: userIcon}
         style={styles.image}
       />
       <TouchableOpacity onPress={handleImage}>
@@ -120,16 +121,19 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   image: {
-    backgroundColor: "#900",
-    borderWidth: 2,
+    backgroundColor: "#fff",
+    // borderWidth: 2,
     borderColor: "#b5b5b5",
+    justifyContent:"center"
   },
   changeImageText: {
     color: "#900",
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
+    paddingVertical:5,
     borderWidth: 2,
     borderColor: "#900",
     marginVertical: 20,
+    borderRadius:40,
   },
   input: {
     backgroundColor: "#fff",
