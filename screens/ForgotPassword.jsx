@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, TouchableOpacity , } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import React,{useState} from 'react'
-import { Button, TextInput } from 'react-native-paper';
+import { Button} from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { forgotPassword } from '../redux/action';
 
@@ -55,21 +55,23 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#b5b5b5",
     padding: 2,
-    paddingLeft: 15,
+    paddingLeft: 25,
     borderRadius: 20,
     borderTopRightRadius:20,
     borderTopLeftRadius:20,
     marginVertical: 5,
     fontSize: 22,
     marginBottom:20,
+    paddingVertical:15,
+    borderColor:"#900"
   },
   button: {
     backgroundColor: "#900",
     padding: 5,
-    width: "70%",
+    width: "40%",
     borderRadius:40,
   },
 });

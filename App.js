@@ -2,6 +2,7 @@ import Main from "./Main";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import * as Updates from "expo-updates";
+import { Alert } from "react-native";
 
 export default function App() {
   // EXPO UPDATES  ==========================================================================>
@@ -11,6 +12,7 @@ export default function App() {
       const update = await Updates.checkForUpdateAsync();
 
       if (update.isAvailable) {
+        Alert.alert("your App got an update😍","please wait while we are updating...")
         await Updates.fetchUpdateAsync();
         await Updates.reloadAsync();
       }
