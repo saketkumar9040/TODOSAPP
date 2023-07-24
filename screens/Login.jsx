@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/action";
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
-import todoImage from "../assets/robot.png"
+import todoImage from "../assets/robot.png";
 
 const Login = ({ navigation }) => {
-
   NavigationBar.setBackgroundColorAsync("#6495ED");
   const { error } = useSelector((state) => state.auth);
 
@@ -30,12 +29,9 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.loginContainer}>
-      <StatusBar style="light"/>
+      <StatusBar style="light" />
       <Text style={styles.welcomeText}>WELCOME</Text>
-      <Image
-        source={todoImage}
-        style={styles.logo}
-      />
+      <Image source={todoImage} style={styles.logo} />
       <View style={{ width: "80%" }}>
         <TextInput
           style={styles.input}
@@ -58,14 +54,18 @@ const Login = ({ navigation }) => {
         style={styles.button}
         onPress={loginHandler}
       >
-        <Text style={{ color: "#fff",fontSize:20, }}>LOGIN</Text>
+        <Text style={{ color: "#fff", fontSize: 20 }}>LOGIN</Text>
       </Button>
-      <Text style={{ marginTop: 20,fontSize:24,color:"#fff" }}>Or</Text>
+      <Text style={styles.orText}>Or</Text>
       <TouchableOpacity onPress={() => navigation.navigate("register")}>
-        <Text style={{ color: "#fff", margin: 20,fontSize:25,fontWeight:800, }}>Sign Up</Text>
+        <Text style={styles.signUpText}>Sign Up</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("forgotPassword")}>
-        <Text style={{ color: "#fff", margin: 20,fontSize:25,fontWeight:400, }}>Forgot Password ?</Text>
+        <Text
+          style={{ color: "#fff", margin: 20, fontSize: 25, fontWeight: 400 }}
+        >
+          Forgot Password ?
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 40,
-    fontWeight:500,
+    fontWeight: 500,
     // margin: 20,
-    color:"#fff",
-    letterSpacing:5,
+    color: "#fff",
+    letterSpacing: 5,
   },
-  logo:{
-    height:200,
-    width:200,
+  logo: {
+    height: 200,
+    width: 200,
   },
   input: {
     backgroundColor: "#fff",
@@ -97,13 +97,28 @@ const styles = StyleSheet.create({
     borderColor: "#900",
     paddingLeft: 15,
     fontSize: 22,
-    marginBottom:20,
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "#900",
     // padding: 5,
-    marginTop:20,
+    marginTop: 20,
     width: "60%",
-    borderRadius:40,
+    borderRadius: 40,
+  },
+  orText: {
+    marginTop: 20,
+    fontSize: 20,
+    color: "#fff",
+  },
+  signUpText: {
+    color: "#fff",
+    margin: 20,
+    fontSize: 25,
+    fontWeight: 800,
+    borderWidth: 2,
+    paddingHorizontal: 20,
+    borderRadius: 40,
+    borderColor: "#fff",
   },
 });
