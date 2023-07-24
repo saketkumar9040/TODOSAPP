@@ -61,7 +61,7 @@ const Register = ({ navigation, route }) => {
       <TouchableOpacity onPress={handleImage}>
         <Text style={styles.changeImageText}>Change Photo</Text>
       </TouchableOpacity>
-
+     <Text style={{fontSize:17,color:"#900"}}>Please fill all the fields</Text>
       <View style={{ width: "70%" }}>
         <TextInput
           style={styles.input}
@@ -95,10 +95,10 @@ const Register = ({ navigation, route }) => {
       </View>
       <Button
         disabled={!email || !password || !name || !phone}
-        style={styles.button}
+        style={!email || !password || !name || !phone?{...styles.button,backgroundColor:"#bfbfbf"}:styles.button}
         onPress={registerHandler}
       >
-        <Text style={styles.buttonText}>Register</Text>
+        <Text style={styles.buttonText}>Register</Text>  
       </Button>
       <Text style={{ marginTop: 20, color: "#900", fontSize: 18 }}>
         Already have an account !!!
