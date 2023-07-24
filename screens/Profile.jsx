@@ -52,7 +52,7 @@ const Profile = ({ navigation, route }) => {
       <Avatar.Image
         size={100}
         source={{ uri: avatar }}
-        style={{marginBottom:20,}}
+        style={{marginBottom:20,backgroundColor:"transparent"}}
       />
       <TouchableOpacity onPress={handleImage} style={{marginBottom:30,}}>
         <Text style={{ color: "white",fontWeight:700,fontSize:18,backgroundColor:"#6495ED" }}>Change Photo</Text>
