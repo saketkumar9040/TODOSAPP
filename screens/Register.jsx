@@ -39,7 +39,7 @@ const Register = ({ navigation, route }) => {
       name: avatar.split("/").pop(),
     });
     await dispatch(register(myForm));
-    Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
+    // Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
     dispatch(loadUser());
   };
 

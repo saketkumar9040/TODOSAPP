@@ -52,6 +52,7 @@ const Profile = ({ navigation, route }) => {
       <Avatar.Image
         size={100}
         source={{ uri: avatar }}
+        style={{marginBottom:20,}}
       />
       <TouchableOpacity onPress={handleImage} style={{marginBottom:30,}}>
         <Text style={{ color: "white",fontWeight:700,fontSize:18,backgroundColor:"#6495ED" }}>Change Photo</Text>
@@ -81,7 +82,10 @@ const Profile = ({ navigation, route }) => {
         <Text style={{fontSize:20,}}>Logout</Text>
       </Button>
       {user.verified ? null : (
-        <Button onPress={() => navigation.navigate("verify")}>Verify</Button>
+        <TouchableOpacity onPress={() => navigation.navigate("verify") }>
+          <Text  style={{fontSize:25,color:"#fff",borderWidth:2,
+        borderColor:"#fff"}}>Verify</Text>
+        </TouchableOpacity>
       )}
     </View>
   );
@@ -98,9 +102,8 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#b5b5b5",
-    // padding: 2,
+    borderWidth: 2,
+    borderColor: "#900",
     paddingLeft: 15,
     marginVertical: 5,
     fontSize: 22,
