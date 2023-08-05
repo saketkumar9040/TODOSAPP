@@ -1,4 +1,5 @@
-import Main from "./Main";
+import React from "react";
+import Main from "./Main.js";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import * as Updates from "expo-updates";
