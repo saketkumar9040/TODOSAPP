@@ -100,6 +100,7 @@ const Register = ({ navigation, route }) => {
           placeholder="Enter phone"
           value={phone}
           onChangeText={(e)=>e.length >10?Alert.alert("Sorry😮","Mobile number must be of 10 digits only"):setPhone(e)}
+          keyboardType="numeric"
         />
       </View>
       <Button
