@@ -114,6 +114,9 @@ const Profile = ({ navigation, route }) => {
               color: "#fff",
               borderWidth: 2,
               borderColor: "#fff",
+              paddingHorizontal:40,
+              marginTop:30,
+              borderRadius:40,
             }}
           >
             Verify

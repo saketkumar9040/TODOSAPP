@@ -10,6 +10,7 @@ export const userReducer = createReducer({},(builder)=>{
         state.isAuthenticated = true;
         state.user = action.payload.user;
         state.message = action.payload.message;
+      
       })
       .addCase("registerFailure", (state, action) => {
         state.loading = false;

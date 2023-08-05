@@ -3,20 +3,22 @@ import { SERVER_URL } from "@env";
 
 export const register = (formData) => async (dispatch) => {
   try {
+    console.log(JSON.stringify(formData))
     dispatch({ type: "registerRequest" });
 
     const { data } = await axios.post(`${SERVER_URL}/register`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-    });
+    })
+
     dispatch({ type: "registerSuccess", payload: data });
-    // console.log(data);
   } catch (error) {
     dispatch({
       type: "registerFailure",
       payload: error.response.data.message,
     });
+    console.log(error)
   }
 };
 
@@ -133,7 +135,7 @@ export const deleteTask = (taskId) => async (dispatch) => {
 
 export const updateProfile = (formData) => async (dispatch) => {
   try {
-    console.log(formData)
+    // console.log(formData)
     dispatch({ type: "updateProfileRequest" });
 
     const { data } = await axios.put(

@@ -25,7 +25,7 @@ const Main = () => {
   }, [dispatch]);
 
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   return loading ? (
     <Loader />

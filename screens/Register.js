@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  StatusBar,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
@@ -21,16 +22,19 @@ const Register = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  console.log(phone)
 
   const handleImage = () => {
     navigation.navigate("camera", { updateProfile: false });
   };
 
   const registerHandler = async () => {
-     try {
-      if(!avatar){
+    try {
+      if (!avatar) {
         Alert.alert("Please Upload your profile Pic🤗");
+        return;
+      }
+      if(password.length < 8){
+        Alert.alert("Password must be atleast 8 characters🙂");
         return;
       }
       const myForm = new FormData();
@@ -45,11 +49,11 @@ const Register = ({ navigation, route }) => {
         name: avatar.split("/").pop(),
       });
       await dispatch(register(myForm));
-      dispatch(loadUser());
+      await dispatch(loadUser());
       // Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
-     } catch (error) {
-      console.log(error)
-     }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -62,61 +66,75 @@ const Register = ({ navigation, route }) => {
 
   return (
     <View style={styles.registerContainer}>
-      <Avatar.Image
-        size={100}
-        source={avatar ? { uri: avatar } : userIcon}
-        style={styles.image}
-      />
-      <TouchableOpacity onPress={handleImage}>
-        <Text style={styles.changeImageText}>Change Photo</Text>
-      </TouchableOpacity>
-     <Text style={{fontSize:17,color:"#900"}}>Please fill all the fields</Text>
-      <View style={{ width: "70%" }}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter name"
-          value={name}
-          onChangeText={setName}
-          autoCapitalize="none"
+        <StatusBar backgroundColor="#6495ed" />
+        <Avatar.Image
+          size={100}
+          source={avatar ? { uri: avatar } : userIcon}
+          style={styles.image}
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter email"
-          value={email}
-          onChangeText={setEmail}
-          autoCapitalize="none"
-        />
-        <TextInput
-          secureTextEntry
-          style={styles.input}
-          placeholder="Enter password"
-          value={password}
-          onChangeText={setPassword}
-          autoCapitalize="none"
-        />
-        <TextInput
-          secureTextEntry
-          style={styles.input}
-          placeholder="Enter phone"
-          value={phone}
-          onChangeText={(e)=>e.length >10?Alert.alert("Sorry😮","Mobile number must be of 10 digits only"):setPhone(e)}
-          keyboardType="numeric"
-        />
+        <TouchableOpacity onPress={handleImage}>
+          <Text style={styles.changeImageText}>Change Photo</Text>
+        </TouchableOpacity>
+        <Text style={{ fontSize: 17, color: "#900" }}>
+          Please fill all the fields
+        </Text>
+        <View style={{ width: "70%" }}>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter name"
+            value={name}
+            onChangeText={setName}
+            autoCapitalize="none"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Enter email"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+          />
+          <TextInput
+            secureTextEntry
+            style={styles.input}
+            placeholder="Enter password"
+            value={password}
+            onChangeText={setPassword}
+            autoCapitalize="none"
+          />
+          <TextInput
+            secureTextEntry
+            style={styles.input}
+            placeholder="Enter phone"
+            value={phone}
+            onChangeText={(e) =>
+              e.length > 10
+                ? Alert.alert(
+                    "Sorry😮",
+                    "Mobile number must be of 10 digits only"
+                  )
+                : setPhone(e)
+            }
+            keyboardType="numeric"
+          />
+        </View>
+        <Button
+          disabled={!email || !password || !name || !phone}
+          style={
+            !email || !password || !name || !phone
+              ? { ...styles.button, backgroundColor: "#bfbfbf" }
+              : styles.button
+          }
+          onPress={registerHandler}
+        >
+          <Text style={styles.buttonText}>Register</Text>
+        </Button>
+        <Text style={{ marginTop: 20, color: "#900", fontSize: 18 }}>
+          Already have an account !!!
+        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("login")}>
+          <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
       </View>
-      <Button
-        disabled={!email || !password || !name || !phone}
-        style={!email || !password || !name || !phone?{...styles.button,backgroundColor:"#bfbfbf"}:styles.button}
-        onPress={registerHandler}
-      >
-        <Text style={styles.buttonText}>Register</Text>  
-      </Button>
-      <Text style={{ marginTop: 20, color: "#900", fontSize: 18 }}>
-        Already have an account !!!
-      </Text>
-      <TouchableOpacity onPress={() => navigation.navigate("login")}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
-    </View>
   );
 };
 
@@ -138,7 +156,8 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     // borderColor: "#b5b5b5",
     // justifyContent: "center",
-    resizeMode:"center"
+    resizeMode: "center",
+    color: "#6495ed",
   },
   changeImageText: {
     color: "#900",
@@ -148,7 +167,7 @@ const styles = StyleSheet.create({
     borderColor: "#900",
     marginVertical: 20,
     borderRadius: 40,
-    fontWeight:700,
+    fontWeight: 700,
   },
   input: {
     backgroundColor: "#fff",
@@ -177,9 +196,13 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "#900",
-    height: 30,
     margin: 20,
     fontSize: 20,
     fontWeight: 700,
+    borderWidth: 2,
+    borderRadius: 40,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    borderColor: "#900",
   },
 });

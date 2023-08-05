@@ -30,6 +30,14 @@
       },
       "runtimeVersion": "1.0.0"
     },
+    "androidNavigationBar": {
+			"barStyle": "light-content",
+			"backgroundColor": "#6495ED"
+		},
+    "androidStatusBar": {
+			"barStyle": "light-content",
+      "backgroundColor": "#6495ED"
+		},
     "web": {
       "favicon": "./assets/icons/favicon.png"
     },
