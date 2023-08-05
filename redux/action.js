@@ -1,6 +1,25 @@
 import axios from "axios";
 import { SERVER_URL } from "@env";
 
+export const register = (formData) => async (dispatch) => {
+  try {
+    dispatch({ type: "registerRequest" });
+
+    const { data } = await axios.post(`${SERVER_URL}/register`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    dispatch({ type: "registerSuccess", payload: data });
+    // console.log(data);
+  } catch (error) {
+    dispatch({
+      type: "registerFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: "loginRequest" });
@@ -176,24 +195,6 @@ export const logout = () => async (dispatch) => {
   }
 };
 
-export const register = (formData) => async (dispatch) => {
-  try {
-    dispatch({ type: "registerRequest" });
-
-    const { data } = await axios.post(`${SERVER_URL}/register`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    dispatch({ type: "registerSuccess", payload: data });
-    console.log(data);
-  } catch (error) {
-    dispatch({
-      type: "registerFailure",
-      payload: error.response.data.message,
-    });
-  }
-};
 
 export const otpVerify = (otp) => async (dispatch) => {
   try {

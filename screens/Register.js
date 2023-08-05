@@ -21,26 +21,35 @@ const Register = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
+  console.log(phone)
 
   const handleImage = () => {
     navigation.navigate("camera", { updateProfile: false });
   };
 
   const registerHandler = async () => {
-    const myForm = new FormData();
+     try {
+      if(!avatar){
+        Alert.alert("Please Upload your profile Pic🤗");
+        return;
+      }
+      const myForm = new FormData();
 
-    myForm.append("name", name);
-    myForm.append("email", email);
-    myForm.append("password", password);
-    myForm.append("phone", phone);
-    myForm.append("avatar", {
-      uri: avatar,
-      type: mime.getType(avatar),
-      name: avatar.split("/").pop(),
-    });
-    await dispatch(register(myForm));
-    // Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
-    dispatch(loadUser());
+      myForm.append("name", name);
+      myForm.append("email", email);
+      myForm.append("password", password);
+      myForm.append("phone", phone);
+      myForm.append("avatar", {
+        uri: avatar,
+        type: mime.getType(avatar),
+        name: avatar.split("/").pop(),
+      });
+      await dispatch(register(myForm));
+      dispatch(loadUser());
+      // Alert.alert("user created successfully🤗","please verify your account in profile with otp send to your Email or user will be deleted")
+     } catch (error) {
+      console.log(error)
+     }
   };
 
   useEffect(() => {
@@ -90,7 +99,7 @@ const Register = ({ navigation, route }) => {
           style={styles.input}
           placeholder="Enter phone"
           value={phone}
-          onChangeText={setPhone}
+          onChangeText={(e)=>e.length >10?Alert.alert("Sorry😮","Mobile number must be of 10 digits only"):setPhone(e)}
         />
       </View>
       <Button
